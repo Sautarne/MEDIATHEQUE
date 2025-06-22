@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des membres</title>
+</head>
+<body>
+    <h1>Liste des membres de la médiathèque</h1>
+
+    <ul>
+        {% for membre in membres %}
+        <li>
+            {{ membre.name }} -
+            {% if membre.bloque %}
+                <strong>Bloqué</strong>
+            {% else %}
+                Actif
+            {% endif %}
+            <a href="{% url 'modifier_membre' membre.id %}">Modifier</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'creer_membre' %}">Ajouter un nouveau membre</a>
+</body>
+</html>

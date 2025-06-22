@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des médias</title>
+</head>
+<body>
+  <h1>Liste des médias</h1>
+
+<ul>
+    {% for media in medias %}
+    <li>
+        <strong>{{ media|capfirst }}</strong> -
+        {{ media.name }} par {{ media.createur }}
+        {% if not media.disponible %}
+            <em>(Emprunté)</em>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

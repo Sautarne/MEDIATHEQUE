@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catalogue de la médiathèque</title>
+</head>
+<body>
+    <h1>Catalogue de la médiathèque "Notre livre, notre média"</h1>
+    <p>Consultez notre collection disponible :</p>
+
+    <ul>
+        {% for media in medias %}
+        <li>
+            <strong>{{ media.name }}</strong> par {{ media.createur }}
+            {% if media.disponible %}
+                <span style="color: green;">(Disponible)</span>
+            {% else %}
+                <span style="color: red;">(Emprunté)</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p><em>Pour emprunter un média, contactez nos bibliothécaires.</em></p>
+</body>
+</html>
